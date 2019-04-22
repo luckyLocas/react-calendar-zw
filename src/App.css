@@ -1,0 +1,35 @@
+.calenderWrapper{
+  position: relative;
+  width: 286px;
+  margin: 100px auto
+}
+.calenderWrapper input{
+  box-sizing: border-box;
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  padding: 6px 11px;
+  width: 100%;
+  height: 36px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #717171;
+  background-color: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.calenderBox{
+  position: absolute;
+  left: 0;
+  top: 44px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

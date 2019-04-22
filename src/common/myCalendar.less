@@ -1,0 +1,186 @@
+@light-color:#6dcff6; 
+.activeStyle{
+  color: #fff;
+  background-color: @light-color
+}
+.laydate-disabled,.laydate-disabled div{
+  background: 0 0!important;
+  color: #d2d2d2!important;
+  cursor: not-allowed!important;
+}
+.disabledActive,.disabledActive div.dateItem{
+  color: #d2d2d2;
+  cursor: not-allowed!important;
+  background-color: @light-color!important;
+}
+
+.myCalendar{
+  color: #666;
+  font-size: 16px;
+  cursor: default;
+  transition: all .3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,.12);
+  background-color: #fff;
+  & *{ // 禁止日历内容被选中
+    box-sizing: border-box;
+    user-select:none;
+  }
+  // 头部
+  .calendarHeader{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    color: #fff;
+    text-align: center;
+    background-color:@light-color;
+    .calendar-set-ym{
+      flex: 1;
+      padding-left: 10px;
+      span{
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+    i{
+      width: 30px;
+      cursor: pointer;
+      font-style: initial
+    }
+  }
+  // 主体
+  .calendarMain{
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+    .calendarDateTable{
+      border-collapse: collapse;
+      border-spacing: 0;
+      th{
+        line-height: 30px;
+        font-weight: 400;
+      }
+      td{
+        transition: all .3s;
+        div.dateItem{
+          width: 36px;
+          height: 30px;
+          line-height: 30px;
+          cursor: pointer;
+          text-align: center;
+        }
+        &:hover{
+          background-color: #eee
+        }
+        &.activeDate{
+          .activeStyle;
+        }
+        &.prevDate,&.nextDate{
+          color: rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+    .calendar-date-list{
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: 0;
+      padding: 10px;
+      list-style: none;
+      background-color: #fff;
+      li{
+        display: inline-block;
+        position: relative;
+        width: 33.3%;
+        height: 36px;
+        line-height: 36px;
+        margin: 3px 0;
+        text-align: center;
+        cursor: pointer;
+        &:hover{
+          background-color: #eee
+        }
+        &.activeItem{
+          .activeStyle;
+        }
+      }
+      &.calendar-month-list{
+        li{
+          width: 25%;
+          margin: 17px 0;
+        }
+      }
+    }
+  }
+  // 底部按钮组
+  .calendarFooter{
+    text-align: right;
+    padding: 13px 10px 10px;
+    border-top: 1px solid #e2e2e2;
+    span{
+      margin: 0 0 0 -1px;
+      padding: 2px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      border: 1px solid #C9C9C9;
+      background-color: #fff;
+      white-space: nowrap;
+      vertical-align: top;
+      border-radius: 2px;
+      &:hover{
+        color: @light-color
+      }
+    }
+  }
+   // 带内容的日期显示
+   &.calendarHasInfo{
+     color: #333;
+     box-shadow: none;
+    .calendarMain{
+      padding: 0 1px 10px 0;
+      th{
+        color: @light-color
+      }
+      td{
+        border: 1px solid #ddd;
+        div.dateItem{
+          width: 40px;
+          height: 41px;
+          padding-top: 5px;
+          line-height: 22px;
+          box-sizing: border-box;
+          cursor: default;
+          span{
+            display: block;
+            width: 39px;
+            line-height: 10px;
+            color: @light-color;
+            font-size: 12px;
+            overflow: hidden;
+          }
+        }
+        &:hover{
+          background-color: #fff
+        }
+        &.activeDate{
+          background-color: #e2f7ff;
+          div.dateItem{
+            color: #333;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .calendar-date-list{
+      border: 1px solid #ddd;
+      li{
+        height: 50px;
+        line-height: 50px;
+      }
+    }
+    .calendarFooter{
+      display: none
+    }
+  }
+}
